@@ -6,7 +6,7 @@
    vanilla-JS port of an earlier React implementation, keeping its content —
    system switch, live "reads as" LaTeX, result with dimension, precision-
    aware copy, cited parameter values, particle/constant lookup, reference
-   tables, history — in this site's visual language.
+   tables, history.
 
    KaTeX is loaded deferred by the page; everything degrades to plain text
    until it arrives.
