@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natural Units Converter</title>
+<meta name="description" content="Combine numbers, units and physical constants in plain notation, and convert across unit systems (SI, natural, Gaussian) with exact dimensional analysis.">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script>
+// honour a saved choice before first paint, so there is no flash
+(function(){try{var t=localStorage.getItem('theme');
+if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+</head>
+<body>
+<main class="article">
+<header class="pagehead">
+    <h1 class="toolmark"><svg viewBox="0 0 520 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Natural Units"><path d="M46 24 H26 V104 H46" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M90 24 H110 V104 H90" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="40" y="42" width="42" height="8" rx="4" fill="#2066a8"/><rect x="40" y="60" width="28" height="8" rx="4" fill="#1f8a70"/><rect x="40" y="78" width="52" height="8" rx="4" fill="#c08a17"/><text x="138" y="72" font-family="Inter, -apple-system, 'Segoe UI', system-ui, sans-serif" font-size="46" font-weight="650" letter-spacing="-1" fill="currentColor">Natural Units</text><text x="140" y="100" font-family="Inter, -apple-system, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="500" letter-spacing="1.5" fill="currentColor" opacity=".55">converter</text></svg></h1>
+  <p class="lede">In the spirit of <a href="https://gutcalc.com/" target="_blank" rel="noopener">GUTCalc</a>...<br>Combine numbers, units and physical constants. Convert across unit systems.</p>
+</header>
+
+<div class="nuc">
+  <div class="nuc-sysrow"><div class="nuc-systems" id="nuc-systems"></div>
+    <span class="nuc-dim small" id="nuc-hint"></span></div>
+
+  <input class="nuc-input" id="nuc-input" spellcheck="false" autocomplete="off"
+         aria-label="Expression">
+  <div class="nuc-reads"><span class="nuc-reads-label">reads as</span><span id="nuc-reads"></span></div>
+
+  <div class="nuc-resultbox" id="nuc-result"></div>
+
+  <section class="nuc-usedbox" id="nuc-used" hidden></section>
+
+  <details class="nuc-fold" id="nuc-history-wrap" hidden>
+    <summary>History</summary>
+    <p class="nuc-dim small">Submitted expressions (press Enter) appear here. Click one to reuse it.</p>
+    <ol class="nuc-histlist" id="nuc-history"></ol>
+  </details>
+
+  <section class="nuc-lookup">
+    <p class="nuc-head">Look up a particle or constant</p>
+    <input class="nuc-input small" id="nuc-lookup-input" spellcheck="false"
+           placeholder="e.g.  photon · W particle · planck · proton mass" aria-label="Lookup">
+    <div id="nuc-lookup-out"></div>
+  </section>
+
+  <details class="nuc-fold">
+    <summary>Constants &amp; units reference <span class="nuc-dim" id="nuc-ref-count"></span></summary>
+    <input class="nuc-input small" id="nuc-ref-input" placeholder="filter…" aria-label="Filter reference">
+    <div class="nuc-refcols">
+      <div><p class="nuc-head">Constants</p><div id="nuc-ref-consts"></div></div>
+      <div><p class="nuc-head">Units</p><div id="nuc-ref-units"></div></div>
+    </div>
+  </details>
+
+  <p class="foot-note" style="margin-top:1.6rem">Constants: CODATA 2022 / PDG values.</p>
+</div>
+
+</main>
+<footer class="foot">
+  <p class="foot-note">Source on <a href="https://github.com/reza-phys/natural-units">GitHub</a>.</p>
+</footer>
+<script src="assets/engine.js"></script>
+<script src="assets/converter.js" defer></script>
+</body>
+</html>

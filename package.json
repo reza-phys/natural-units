@@ -1,0 +1,19 @@
+{
+  "name": "natural-units",
+  "version": "1.0.0",
+  "description": "A natural-units calculator: expressions over numbers, units and physical constants, with exact dimensional analysis and conversion between SI, natural and Gaussian systems.",
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "test": "vitest run",
+    "build": "node scripts/build-engine.mjs",
+    "typecheck": "tsc --noEmit",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "rolldown": "^1.0.0-beta.1",
+    "typescript": "~5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
